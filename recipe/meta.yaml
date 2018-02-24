@@ -1,4 +1,4 @@
-{% set version = '1.36' %}
+{% set version = '1.39' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,12 +12,11 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/FactoMineR_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: 2198c3facaa41a23df6f9373d4ccb636b98a8810896e379e5deb686ab31b36de
+  sha256: b0bb1d6d7d1f3cb11a4b63c377321e10078a36f29bc78dfa3b80c7c149f4a08a
 
 build:
   number: 0
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
@@ -59,11 +58,13 @@ about:
     quantitative, correspondence analysis (CA) and multiple correspondence analysis
     (MCA) when variables are categorical, Multiple Factor Analysis when variables are
     structured in groups, etc. and hierarchical cluster analysis.'
-
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
+    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
