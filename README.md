@@ -14,14 +14,16 @@ Summary: Exploratory data analysis methods to summarize, visualize and describe 
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-factominer-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-factominer-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-factominer-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-factominer-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-factominer-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-factominer-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-factominer-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-factominer-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-factominer-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-factominer-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-factominer-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-factominer-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-factominer/badges/version.svg)](https://anaconda.org/conda-forge/r-factominer)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-factominer/badges/downloads.svg)](https://anaconda.org/conda-forge/r-factominer)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--factominer-green.svg)](https://anaconda.org/conda-forge/r-factominer) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-factominer.svg)](https://anaconda.org/conda-forge/r-factominer) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-factominer.svg)](https://anaconda.org/conda-forge/r-factominer) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-factominer.svg)](https://anaconda.org/conda-forge/r-factominer) |
 
 Installing r-factominer
 =======================
