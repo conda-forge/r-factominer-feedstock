@@ -1,5 +1,4 @@
-{% set version = "1.41" %}
-
+{% set version = '1.41' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,12 +9,13 @@ package:
 source:
   fn: FactoMineR_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/FactoMineR_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
   sha256: a9889d69e298b8a01e8d0a5a54260730e742c95681e367d759829aad9a8740c0
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -23,6 +23,8 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-mass
     - r-car
@@ -32,7 +34,6 @@ requirements:
     - r-lattice
     - r-leaps
     - r-scatterplot3d
-
   run:
     - r-base
     - r-mass
@@ -46,7 +47,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('FactoMineR')"  # [not win]
+    - $R -e "library('FactoMineR')"           # [not win]
     - "\"%R%\" -e \"library('FactoMineR')\""  # [win]
 
 about:
@@ -57,15 +58,17 @@ about:
     in terms of applications: principal component analysis (PCA) when variables are
     quantitative, correspondence analysis (CA) and multiple correspondence analysis
     (MCA) when variables are categorical, Multiple Factor Analysis when variables are
-    structured in groups, etc. and hierarchical cluster analysis.'
+    structured in groups, etc. and hierarchical cluster analysis. F. Husson, S. Le and
+    J. Pages (2017) <DOI:10.1201/b10345-2>.'
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
-    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
