@@ -1,4 +1,4 @@
-{% set version = '1.41' %}
+{% set version = "1.42" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: a9889d69e298b8a01e8d0a5a54260730e742c95681e367d759829aad9a8740c0
+  sha256: 4cd9efb3681767c3bd48ddc3504ebead1493fcbbc0a9f759a00955b16c3481fa
 
 build:
   noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
