@@ -3,7 +3,7 @@ About r-factominer
 
 Home: http://factominer.free.fr
 
-Package license: GPL (>= 2)
+Package license: GPL-2
 
 Feedstock license: BSD 3-Clause
 
