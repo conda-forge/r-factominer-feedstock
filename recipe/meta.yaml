@@ -15,14 +15,20 @@ source:
 build:
   merge_build_host: true  # [win]
   number: 0
-  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-dt
@@ -30,24 +36,29 @@ requirements:
     - r-car
     - r-cluster
     - r-ellipse
+    - r-emmeans
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-multcompview
     - r-scatterplot3d
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-dt
     - r-mass
     - r-car
     - r-cluster
     - r-ellipse
+    - r-emmeans
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-multcompview
     - r-scatterplot3d
 
 test:
