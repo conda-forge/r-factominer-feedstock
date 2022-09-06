@@ -1,4 +1,4 @@
-{% set version = "2.4" %}
+{% set version = "2.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,19 +10,25 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: b9e3adce9a66b4daccc85fa67cb0769d6be230beeb126921b386ccde5db2e851
+  sha256: 167d11fab21d8f9157adf3eae8c46cee8421df90b4d20e0cef32cca9e67db8f9
 
 build:
   merge_build_host: true  # [win]
   number: 0
-  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-dt
@@ -30,24 +36,29 @@ requirements:
     - r-car
     - r-cluster
     - r-ellipse
+    - r-emmeans
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-multcompview
     - r-scatterplot3d
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-dt
     - r-mass
     - r-car
     - r-cluster
     - r-ellipse
+    - r-emmeans
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-multcompview
     - r-scatterplot3d
 
 test:
