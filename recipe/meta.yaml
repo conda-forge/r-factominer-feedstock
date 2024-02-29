@@ -1,4 +1,4 @@
-{% set version = "2.9" %}
+{% set version = "2.10" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: 882698d399a641c80f63ffae69c334fc5306238fb8592e9b760e17d4621f5230
+  sha256: dce4f4f8f8254c8a08c2ba379a075619c57573f72a711b053868b27f26044bce
 
 build:
   merge_build_host: true  # [win]
