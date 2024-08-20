@@ -19,22 +19,34 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ posix }}filesystem        # [win]
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-car                      # [build_platform != target_platform]
+    - r-cluster                  # [build_platform != target_platform]
+    - r-dt                       # [build_platform != target_platform]
+    - r-ellipse                  # [build_platform != target_platform]
+    - r-emmeans                  # [build_platform != target_platform]
+    - r-flashclust               # [build_platform != target_platform]
+    - r-ggplot2                  # [build_platform != target_platform]
+    - r-ggrepel                  # [build_platform != target_platform]
+    - r-lattice                  # [build_platform != target_platform]
+    - r-leaps                    # [build_platform != target_platform]
+    - r-mass                     # [build_platform != target_platform]
+    - r-multcompview             # [build_platform != target_platform]
+    - r-scatterplot3d            # [build_platform != target_platform]
+    - {{ compiler('c') }}        # [not win]
+    - {{ stdlib("c") }}          # [not win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ stdlib("m2w64_c") }}    # [win]
+    - {{ posix }}filesystem      # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
     - r-base
-    - r-dt
-    - r-mass
     - r-car
     - r-cluster
+    - r-dt
     - r-ellipse
     - r-emmeans
     - r-flashclust
@@ -42,14 +54,14 @@ requirements:
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-mass
     - r-multcompview
     - r-scatterplot3d
   run:
     - r-base
-    - r-dt
-    - r-mass
     - r-car
     - r-cluster
+    - r-dt
     - r-ellipse
     - r-emmeans
     - r-flashclust
@@ -57,6 +69,7 @@ requirements:
     - r-ggrepel
     - r-lattice
     - r-leaps
+    - r-mass
     - r-multcompview
     - r-scatterplot3d
 
@@ -67,32 +80,15 @@ test:
 
 about:
   home: http://factominer.free.fr
+  dev_url: https://github.com/husson/FactoMineR
   license: GPL-2.0-or-later
   summary: 'Exploratory data analysis methods to summarize, visualize and describe datasets. The main principal component methods are available, those with the largest potential in terms of applications: principal component analysis (PCA) when variables are quantitative, correspondence analysis (CA) and multiple correspondence
     analysis (MCA) when variables are categorical, Multiple Factor Analysis when variables are structured in groups, etc. and hierarchical cluster analysis. F. Husson, S. Le and J. Pages (2017).'
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: FactoMineR
-# Version: 2.0
-# Date: 2019-11-15
-# Title: Multivariate Exploratory Data Analysis and Data Mining
-# Author: Francois Husson, Julie Josse, Sebastien Le, Jeremy Mazet
-# Maintainer: Francois Husson <francois.husson@agrocampus-ouest.fr>
-# Depends: R (>= 3.5.0)
-# Imports: car,cluster,ellipse,flashClust,graphics,grDevices,lattice,leaps,MASS,scatterplot3d,stats,utils,ggplot2,ggrepel
-# Suggests: missMDA,knitr,Factoshiny
-# Description: Exploratory data analysis methods to summarize, visualize and describe datasets. The main principal component methods are available, those with the largest potential in terms of applications: principal component analysis (PCA) when variables are quantitative, correspondence analysis (CA) and multiple correspondence analysis (MCA) when variables are categorical, Multiple Factor Analysis when variables are structured in groups, etc. and hierarchical cluster analysis. F. Husson, S. Le and J. Pages (2017).
-# License: GPL (>= 2)
-# URL: http://factominer.free.fr
-# Encoding: latin1
-# VignetteBuilder: knitr
-# NeedsCompilation: no
-# Packaged: 2019-11-21 16:51:38 UTC; husson
-# Repository: CRAN
-# Date/Publication: 2019-11-25 15:50:02 UTC
