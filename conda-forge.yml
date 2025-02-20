@@ -1,5 +1,5 @@
 azure:
-  store_build_artifacts: true
+  store_build_artifacts: false
 bot:
   automerge: true
 build_platform:
@@ -16,4 +16,4 @@ provider:
   linux_aarch64: azure
   linux_ppc64le: azure
   win: azure
-test: native
+test: native_and_emulated
