@@ -16,6 +16,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -44,9 +48,10 @@ requirements:
     - {{ posix }}zip             # [win]
   host:
     - r-base
+    - r-dt
+    - r-mass
     - r-car
     - r-cluster
-    - r-dt
     - r-ellipse
     - r-emmeans
     - r-flashclust
@@ -54,14 +59,14 @@ requirements:
     - r-ggrepel
     - r-lattice
     - r-leaps
-    - r-mass
     - r-multcompview
     - r-scatterplot3d
   run:
     - r-base
+    - r-dt
+    - r-mass
     - r-car
     - r-cluster
-    - r-dt
     - r-ellipse
     - r-emmeans
     - r-flashclust
@@ -69,7 +74,6 @@ requirements:
     - r-ggrepel
     - r-lattice
     - r-leaps
-    - r-mass
     - r-multcompview
     - r-scatterplot3d
 
