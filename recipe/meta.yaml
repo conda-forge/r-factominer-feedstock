@@ -1,4 +1,4 @@
-{% set version = "2.15" %}
+{% set version = "2.16" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: 5e3d4db6d21725f4151754efed4426c2af3efb32598be534236cf842095b0e30
+  sha256: 9fe97bdab2f65083ccc16a9c3645fef11425dee42ebf38565f4c5f2e4583d34e
 
 build:
   number: 0
@@ -24,20 +24,23 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-dt                       # [build_platform != target_platform]
     - r-mass                     # [build_platform != target_platform]
     - r-car                      # [build_platform != target_platform]
     - r-cluster                  # [build_platform != target_platform]
-    - r-dt                       # [build_platform != target_platform]
     - r-ellipse                  # [build_platform != target_platform]
     - r-emmeans                  # [build_platform != target_platform]
     - r-flashclust               # [build_platform != target_platform]
     - r-ggplot2                  # [build_platform != target_platform]
-    - r-irlba                    # [build_platform != target_platform]
     - r-ggrepel                  # [build_platform != target_platform]
+    - r-ggtext                   # [build_platform != target_platform]
+    - r-irlba                    # [build_platform != target_platform]
     - r-lattice                  # [build_platform != target_platform]
     - r-leaps                    # [build_platform != target_platform]
     - r-multcompview             # [build_platform != target_platform]
     - r-scatterplot3d            # [build_platform != target_platform]
+    - r-showtext                 # [build_platform != target_platform]
+    - r-sysfonts                 # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ stdlib("c") }}          # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
@@ -58,11 +61,15 @@ requirements:
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
+    - r-ggtext
     - r-irlba
     - r-lattice
     - r-leaps
     - r-multcompview
+    - r-scales
     - r-scatterplot3d
+    - r-showtext
+    - r-sysfonts
   run:
     - r-base
     - r-dt
@@ -74,11 +81,15 @@ requirements:
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
+    - r-ggtext
     - r-irlba
     - r-lattice
     - r-leaps
     - r-multcompview
+    - r-scales
     - r-scatterplot3d
+    - r-showtext
+    - r-sysfonts
 
 test:
   commands:
