@@ -33,11 +33,14 @@ requirements:
     - r-flashclust               # [build_platform != target_platform]
     - r-ggplot2                  # [build_platform != target_platform]
     - r-ggrepel                  # [build_platform != target_platform]
+    - r-ggtext                   # [build_platform != target_platform]
     - r-irlba                    # [build_platform != target_platform]
     - r-lattice                  # [build_platform != target_platform]
     - r-leaps                    # [build_platform != target_platform]
     - r-multcompview             # [build_platform != target_platform]
     - r-scatterplot3d            # [build_platform != target_platform]
+    - r-showtext                 # [build_platform != target_platform]
+    - r-sysfonts                 # [build_platform != target_platform]
     - {{ compiler('c') }}        # [not win]
     - {{ stdlib("c") }}          # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
@@ -58,11 +61,15 @@ requirements:
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
+    - r-ggtext
     - r-irlba
     - r-lattice
     - r-leaps
     - r-multcompview
+    - r-scales
     - r-scatterplot3d
+    - r-showtext
+    - r-sysfonts
   run:
     - r-base
     - r-dt
@@ -74,11 +81,15 @@ requirements:
     - r-flashclust
     - r-ggplot2
     - r-ggrepel
+    - r-ggtext
     - r-irlba
     - r-lattice
     - r-leaps
     - r-multcompview
+    - r-scales
     - r-scatterplot3d
+    - r-showtext
+    - r-sysfonts
 
 test:
   commands:
