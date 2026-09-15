@@ -1,4 +1,4 @@
-{% set version = "2.16" %}
+{% set version = "2.17" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: 9fe97bdab2f65083ccc16a9c3645fef11425dee42ebf38565f4c5f2e4583d34e
+  sha256: 1fe60f73b056364fe6b3ad8d156a5014a7d78a0bff85ee070d88888a6be1f1ed
 
 build:
   number: 0
