@@ -1,15 +1,15 @@
-{% set version = "2.17" %}
+{% set version = "2.18" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-factominer
-  version: "{{ version|replace("-", "_") }}"
+  version: {{ version|replace("-", "_") }}
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/FactoMineR_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/FactoMineR/FactoMineR_{{ version }}.tar.gz
-  sha256: 1fe60f73b056364fe6b3ad8d156a5014a7d78a0bff85ee070d88888a6be1f1ed
+  sha256: 10fcdde8f685c30c2403e1037c3ccc3a35bddf1090e11d346a8bf20964c55f8e
 
 build:
   number: 0
